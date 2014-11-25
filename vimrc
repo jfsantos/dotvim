@@ -43,6 +43,7 @@
     call add(s:settings.plugin_groups, 'python')
     call add(s:settings.plugin_groups, 'scala')
     call add(s:settings.plugin_groups, 'go')
+    call add(s:settings.plugin_groups, 'julia')
     call add(s:settings.plugin_groups, 'scm')
     call add(s:settings.plugin_groups, 'editing')
     call add(s:settings.plugin_groups, 'indents')
@@ -397,6 +398,9 @@
   if count(s:settings.plugin_groups, 'go') "{{{
     NeoBundleLazy 'jnwhiteh/vim-golang', {'autoload':{'filetypes':['go']}}
     NeoBundleLazy 'nsf/gocode', {'autoload': {'filetypes':['go']}, 'rtp': 'vim'}
+  endif "}}}
+  if count(s:settings.plugin_groups, 'julia') "{{{
+    NeoBundle 'JuliaLang/julia-vim'
   endif "}}}
   if count(s:settings.plugin_groups, 'scm') "{{{
     NeoBundle 'mhinz/vim-signify' "{{{
