@@ -722,10 +722,10 @@
   map <F6> :set invpaste<CR>:set paste?<CR>
 
   " remap arrow keys
-  nnoremap <left> :bprev<CR>
-  nnoremap <right> :bnext<CR>
-  nnoremap <up> :tabnext<CR>
-  nnoremap <down> :tabprev<CR>
+  nnoremap <leader> <left> :bprev<CR>
+  nnoremap <leader><right> :bnext<CR>
+  nnoremap <leader><up> :tabnext<CR>
+  nnoremap <leader><down> :tabprev<CR>
 
   " smash escape
   inoremap jk <esc>
