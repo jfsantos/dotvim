@@ -25,7 +25,7 @@
   let s:settings.max_column = 120
   let s:settings.autocomplete_method = 'neocomplcache'
   let s:settings.enable_cursorcolumn = 0
-  let s:settings.colorscheme = 'jellybeans'
+  let s:settings.colorscheme = 'zenburn'
   if has('lua')
     let s:settings.autocomplete_method = 'neocomplete'
   elseif filereadable(expand("~/.vim/bundle/YouCompleteMe/python/ycm_core.*"))
@@ -51,6 +51,7 @@
     call add(s:settings.plugin_groups, 'navigation')
     call add(s:settings.plugin_groups, 'unite')
     call add(s:settings.plugin_groups, 'autocomplete')
+    call add(s:settings.plugin_groups, 'pandoc')
     " call add(s:settings.plugin_groups, 'textobj')
     call add(s:settings.plugin_groups, 'misc')
     if s:is_windows
@@ -283,7 +284,7 @@
     set guioptions-=T                                 "toolbar icons
 
     if s:is_macvim
-      set gfn=Ubuntu_Mono:h14
+      set gfn=Monaco:h14
       set transparency=2
     endif
 
@@ -416,6 +417,11 @@
   if count(s:settings.plugin_groups, 'latex') "{{{
     NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
   endif "}}}
+  if count(s:settings.plugin_groups, 'pandoc') "{{{
+    NeoBundle 'vim-pandoc/vim-pandoc'
+    NeoBundle 'vim-pandoc/vim-pandoc-syntax'
+  endif "}}}
+
 
   if count(s:settings.plugin_groups, 'scm') "{{{
     NeoBundle 'mhinz/vim-signify' "{{{
@@ -712,6 +718,7 @@
       let g:goldenview__enable_default_mapping=0
       nmap <F4> <Plug>ToggleGoldenViewAutoResize
     "}}}
+    NeoBundle 'flazz/vim-colorschemes'
   endif "}}}
   if count(s:settings.plugin_groups, 'windows') "{{{
     NeoBundleLazy 'PProvost/vim-ps1', {'autoload':{'filetypes':['ps1']}} "{{{
