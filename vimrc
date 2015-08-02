@@ -44,6 +44,7 @@
     call add(s:settings.plugin_groups, 'scala')
     call add(s:settings.plugin_groups, 'go')
     call add(s:settings.plugin_groups, 'julia')
+    call add(s:settings.plugin_groups, 'latex')
     call add(s:settings.plugin_groups, 'scm')
     call add(s:settings.plugin_groups, 'editing')
     call add(s:settings.plugin_groups, 'indents')
@@ -402,6 +403,10 @@
   if count(s:settings.plugin_groups, 'julia') "{{{
     NeoBundle 'JuliaLang/julia-vim'
   endif "}}}
+  if count(s:settings.plugin_groups, 'latex') "{{{
+    NeoBundle 'LaTeX-Box-Team/LaTeX-Box'
+  endif "}}}
+
   if count(s:settings.plugin_groups, 'scm') "{{{
     NeoBundle 'mhinz/vim-signify' "{{{
       let g:signify_update_on_bufenter=0
@@ -726,7 +731,7 @@
   map <F6> :set invpaste<CR>:set paste?<CR>
 
   " remap arrow keys
-  nnoremap <leader> <left> :bprev<CR>
+  nnoremap <leader><left> :bprev<CR>
   nnoremap <leader><right> :bnext<CR>
   nnoremap <leader><up> :tabnext<CR>
   nnoremap <leader><down> :tabprev<CR>
@@ -824,7 +829,7 @@
   endif
 
   " general
-  nmap <leader>l :set list! list?<cr>
+  nmap <leader>t :set list! list?<cr>
   nnoremap <BS> :set hlsearch! hlsearch?<cr>
 
   map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
