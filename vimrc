@@ -1,4 +1,6 @@
 " vim: fdm=marker ts=2 sts=2 sw=2 fdl=0
+scriptencoding utf-8
+set encoding=utf-8
 
 " detect OS {{{
   let s:is_windows = has('win32') || has('win64')
@@ -41,7 +43,6 @@
     call add(s:settings.plugin_groups, 'javascript')
     call add(s:settings.plugin_groups, 'ruby')
     call add(s:settings.plugin_groups, 'python')
-    call add(s:settings.plugin_groups, 'scala')
     call add(s:settings.plugin_groups, 'go')
     call add(s:settings.plugin_groups, 'julia')
     call add(s:settings.plugin_groups, 'latex')
@@ -52,8 +53,8 @@
     call add(s:settings.plugin_groups, 'unite')
     call add(s:settings.plugin_groups, 'autocomplete')
     call add(s:settings.plugin_groups, 'pandoc')
-    " call add(s:settings.plugin_groups, 'textobj')
     call add(s:settings.plugin_groups, 'misc')
+    call add(s:settings.plugin_groups, 'rust')
     if s:is_windows
       call add(s:settings.plugin_groups, 'windows')
     endif
@@ -187,7 +188,7 @@
   let &softtabstop=s:settings.default_indent          "number of spaces per tab in insert mode
   let &shiftwidth=s:settings.default_indent           "number of spaces when indenting
   set list                                            "highlight whitespace
-  set listchars=tab:│\ ,trail:•,extends:❯,precedes:❮
+  set listchars=tab:>-,trail:.,extends:>,precedes:<
   set shiftround
   set linebreak
   let &showbreak='↪ '
@@ -284,7 +285,7 @@
     set guioptions-=T                                 "toolbar icons
 
     if s:is_macvim
-      set gfn=Monaco:h14
+      set gfn=Ubuntu_Mono:h16
       set transparency=2
     endif
 
@@ -420,6 +421,9 @@
   if count(s:settings.plugin_groups, 'pandoc') "{{{
     NeoBundle 'vim-pandoc/vim-pandoc'
     NeoBundle 'vim-pandoc/vim-pandoc-syntax'
+  endif "}}}
+  if count(s:settings.plugin_groups, 'rust') "{{{
+    NeoBundle 'rust-lang/rust.vim'
   endif "}}}
 
 
